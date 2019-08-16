@@ -4,12 +4,12 @@ const Welcome = (props) => {
     return (
       <div>
         {
-          props.isTeacher && 
-          <h2>Hello, {props.name}, I am a Teacher</h2>
+          props.isTeacher &&
+          <strong>{`Hello, ${props.name}, I am a Teacher.`}</strong>
         }
         {
           !props.isTeacher &&
-          <p>{`Hello ${props.name}, I am a student ${props.count}`}</p>
+          <p>{`Hello ${props.name}, I am a student.`}</p>
         }
       </div>
     );

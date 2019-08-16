@@ -3,26 +3,32 @@ import React, {Component} from 'react';
 export default class Counter extends Component{
     constructor(props){
       super(props);
-      console.log('Counter constructor');
+      this.state = {count: 0, diff: 1}
     }
 
-    componentDidMount() {
-      console.log('Counter componentDidMount');
-    }
+  handleAdd = ()=>{
+    this.setState((preState, props) => {
+      return  {
+        count: preState.count + props.diff
+      };
+    });
+  }
 
-    componentDidUpdate() {
-      console.log('Counter componentDidUpdate');
-    }
+  handleSubtract = ()=>{
+    this.setState((preState, props) => {
+      return {
+        count: preState.count - props.diff
+      };
+    });
+  }
   
     render(){
-      console.log('Counter render');
       return(
         <div>
-          <span>count is : {this.props.count} </span>
-          <button onClick={this.props.handleSubtract}>-</button>
-          <button onClick={this.props.handleAdd}>+</button>
+          <span>count is : {this.state.count} </span>
+          <button onClick={this.handleSubtract}> - {this.props.diff} </button>
+          <button onClick={this.handleAdd}> + {this.props.diff} </button>
         </div>
       );
     }
   }
-  
